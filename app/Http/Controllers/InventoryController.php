@@ -104,7 +104,7 @@ class InventoryController extends Controller
         $inventories = Inventory::latest()->paginate(5);
         $info = [
             'status' => 'success',
-            'message' => 'All inventory retrieved',
+            'message' => 'All inventories retrieved',
             'data' => [
                 'inventories' => $inventories
             ]

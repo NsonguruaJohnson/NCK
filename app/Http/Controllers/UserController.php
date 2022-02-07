@@ -11,6 +11,18 @@ class UserController extends Controller
         $this->middleware('auth:api');
     }
 
+    public function readAll() {
+        $inventories = Inventory::latest()->paginate(5);
+        $info = [
+            'status' => 'success',
+            'message' => 'All inventories retrieved',
+            'data' => [
+                'inventories' => $inventories
+            ]
+        ];
+        return response()->json($info, 200);
+    }
+
     public function read($id) {
         if(Inventory::where('id', $id)->exists()) {
             $inventory = Inventory::find($id);

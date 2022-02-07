@@ -40,6 +40,7 @@ Route::group(['prefix' => 'inventory', 'middleware' => 'admin'], function () {
 });
 
 Route::group(['prefix' => 'user/inventory'], function () {
+    Route::post('/readall', [UserController::class, 'readAll']);
     Route::post('/{id}/read', [UserController::class, 'read']);
 });
 
