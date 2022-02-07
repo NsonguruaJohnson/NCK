@@ -100,6 +100,19 @@ class InventoryController extends Controller
 
     }
 
+    public function readAll() {
+        $inventories = Inventory::latest()->paginate(5);
+        $info = [
+            'status' => 'success',
+            'message' => 'All inventory retrieved',
+            'data' => [
+                'inventories' => $inventories
+            ]
+        ];
+        return response()->json($info, 200);
+
+    }
+
     public function read($id) {
         if(Inventory::where('id', $id)->exists()) {
             $inventory = Inventory::find($id);

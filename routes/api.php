@@ -34,6 +34,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['prefix' => 'inventory', 'middleware' => 'admin'], function () {
     Route::post('store', [InventoryController::class, 'store']);
     Route::post('/{id}/update', [InventoryController::class, 'update']);
+    Route::post('/readall', [InventoryController::class, 'readAll']);
     Route::post('/{id}/read', [InventoryController::class, 'read']);
     Route::post('/{id}/destroy', [InventoryController::class, 'delete']);
 });
