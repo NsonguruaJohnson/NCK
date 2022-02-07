@@ -13,7 +13,7 @@ class UserController extends Controller
 
     public function read($id) {
         if(Inventory::where('id', $id)->exists()) {
-            $inventory = Inventory::find($id)->get();
+            $inventory = Inventory::find($id);
             $info = [
                 'status' => 'success',
                 'message' => 'Inventory retrieved',
